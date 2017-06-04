@@ -1,4 +1,6 @@
-import * as lodash from 'lodash';
+// TODO only load relevant lodash functions
+
+import {uniq, merge, clone} from 'lodash';
 
 export class Helper implements IHelper {
 
@@ -76,7 +78,7 @@ export class Helper implements IHelper {
 	 * @return {Array<any>}
 	 */
 	public unique (value: Array<any>): Array<any> {
-		return lodash.uniq(value);
+		return uniq(value);
 	}
 
 	/**
@@ -95,7 +97,7 @@ export class Helper implements IHelper {
 	 * @return {Object}
 	 */
 	public merge (objectA: any, objectB: any): any {
-		return lodash.merge(objectA, objectB);
+		return merge(objectA, objectB);
 	}
 
 	/**
@@ -107,7 +109,7 @@ export class Helper implements IHelper {
 	 * @return {any}
 	 */
 	public clone (value: any): any {
-		return lodash.clone(value);
+		return clone(value);
 	}
 
 	/**

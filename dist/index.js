@@ -1,6 +1,7 @@
 "use strict";
+// TODO only load relevant lodash functions
 Object.defineProperty(exports, "__esModule", { value: true });
-var lodash = require("lodash");
+var lodash_1 = require("lodash");
 var Helper = (function () {
     function Helper() {
     }
@@ -72,7 +73,7 @@ var Helper = (function () {
      * @return {Array<any>}
      */
     Helper.prototype.unique = function (value) {
-        return lodash.uniq(value);
+        return lodash_1.uniq(value);
     };
     /**
      * This method is like _.assign except that it recursively merges own and
@@ -90,7 +91,7 @@ var Helper = (function () {
      * @return {Object}
      */
     Helper.prototype.merge = function (objectA, objectB) {
-        return lodash.merge(objectA, objectB);
+        return lodash_1.merge(objectA, objectB);
     };
     /**
      * Creates a shallow clone of value.
@@ -101,7 +102,7 @@ var Helper = (function () {
      * @return {any}
      */
     Helper.prototype.clone = function (value) {
-        return lodash.clone(value);
+        return lodash_1.clone(value);
     };
     /**
      * Returns a random string.
