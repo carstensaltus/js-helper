@@ -6,7 +6,7 @@ let tslint = require('gulp-tslint');
 let clean = require('gulp-clean');
 let runSequence = require('run-sequence');
 
-gulp.task('default', ['watch'], () => {
+gulp.task('default', ['build'], () => {
 
 });
 
@@ -21,14 +21,14 @@ gulp.task('watch', ['build'], () => {
 
 gulp.task('build', () => {
 	runSequence('clean', 'tslint', 'compile', () => {
-		console.log('_> watching...');
+
 	});
 });
 
 gulp.task('clean', () => {
 	return gulp
 		.src([
-			'dist/**'
+			'dist/*/**'
 		])
 		.pipe(clean());
 });
