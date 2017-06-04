@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "indent": [true, "tab"],
+    "class-name": [true],
+    "interface-name": [true],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+    "member-ordering": [true, "public-before-private", "static-before-instance", "variables-before-functions"],
+    "quotemark": [true, "single", "avoid-escape"]
+  }
+}

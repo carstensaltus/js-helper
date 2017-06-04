@@ -1,0 +1,33 @@
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
+*.pyc
+
+npm-debug.log
+
+node_modules/
+
+# ignore typings
+typings/globals
+typings/modules
+
+# IntelliJ
+
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+*.iws
+.DS_Store
+log/
+target/
+
+
+# Sublime project files
+*.sublime*
