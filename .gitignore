@@ -1,3 +1,4 @@
+# ALL
 *.seed
 *.log
 *.csv
@@ -7,27 +8,26 @@
 *.gz
 *.swp
 *.pyc
+*.iml
+*.iws
+*.DS_Store
 
+# Root
 npm-debug.log
-
+.DS_Store
 node_modules/
+log/
+target/
 
-# ignore typings
+# Typings
 typings/globals
 typings/modules
 
-# IntelliJ
-
+# IDE:IntelliJ
 .classpath
 .project
 .settings/
 .idea/
-*.iml
-*.iws
-.DS_Store
-log/
-target/
 
-
-# Sublime project files
+# IDE:Sublime
 *.sublime*
