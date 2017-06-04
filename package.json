@@ -27,7 +27,9 @@
   "dependencies": {
     "lodash": "4.17.4"
   },
-  "pre-push": ["test"],
+  "pre-push": {
+    "run": ["test"]
+  },
   "devDependencies": {
     "@types/lodash": "4.14.65",
     "@types/node": "4.2.4",
