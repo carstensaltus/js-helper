@@ -129,7 +129,7 @@ export class Helper implements IHelper {
 
 }
 
-interface IHelper {
+export interface IHelper {
 	isUndefined (value: any): boolean;
 	trim (value: string): string;
 	upperCase (str: string): string;

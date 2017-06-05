@@ -47,12 +47,14 @@
     "chai": "4.0.1",
     "gulp": "3.9.1",
     "gulp-clean": "0.3.2",
-    "gulp-tslint": "7.1.0",
-    "gulp-typescript": "3.1.6",
+    "gulp-tslint": "8.1.0",
+    "gulp-typescript": "3.1.7",
+    "merge": "1.2.0",
+    "merge2": "1.0.3",
     "mocha": "3.4.2",
     "pre-push": "0.1.1",
     "run-sequence": "1.2.2",
-    "tslint": "4.5.1",
+    "tslint": "5.4.2",
     "typescript": "2.3.4"
   },
   "files": [

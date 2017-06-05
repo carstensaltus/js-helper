@@ -20,17 +20,13 @@ gulp.task('watch', ['build'], () => {
 });
 
 gulp.task('build', () => {
-	runSequence('clean', 'tslint', 'compile', () => {
+	runSequence('clean', 'tslint', 'compile', 'defintions', () => {
 
 	});
 });
 
 gulp.task('clean', () => {
-	return gulp
-		.src([
-			'dist/*/**'
-		])
-		.pipe(clean());
+	return gulp.src(['dist/*/**']).pipe(clean());
 });
 
 gulp.task('tslint', () =>
@@ -45,6 +41,16 @@ gulp.task('tslint', () =>
 // Compile Typescript to JavaScript
 gulp.task('compile', () => {
 	let tsProject = ts.createProject('tsconfig.json');
+	let outDir = tsProject.config.compilerOptions.outDir;
 	let tsResult = gulp.src(['src/**/*.ts']).pipe(tsProject());
-	return tsResult.js.pipe(gulp.dest('./dist'));
+	return tsResult.js.pipe(gulp.dest(outDir));
+});
+
+// Compile Typescript to JavaScript
+gulp.task('defintions', () => {
+	let tsProject = ts.createProject({
+		declaration: true
+	});
+	let tsResult = gulp.src('src/index.ts').pipe(tsProject());
+	return tsResult.dts.pipe(gulp.dest('dist'));
 });
