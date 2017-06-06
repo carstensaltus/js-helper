@@ -3,9 +3,11 @@ language: node_js
 node_js:
   - "node",
   - "4"
-before_install: echo '!!! HELLO WORLD' !!!
+before_install:
+  - echo 123
 install:
   - npm install
 script:
   - npm test
-after_install: "echo !!!! DONE !!!"
+after_install:
+  - echo 345
