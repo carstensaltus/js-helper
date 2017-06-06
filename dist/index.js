@@ -106,7 +106,7 @@ class Helper {
      * Returns a random string.
      *
      * @param  {number} length - Optional, defaults to 5
-     * @param {string} chars - The type of random strings
+     * @param {string} chars - The type of random strings, defaults to aA
      * @return {string}
      */
     randomStr(length, chars) {
