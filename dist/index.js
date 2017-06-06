@@ -1,4 +1,4 @@
-// TODO only load relevant lodash functions
+// TODO only load relevant lodash functions.
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 var lodash_1 = require("lodash");
