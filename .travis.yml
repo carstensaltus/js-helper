@@ -1,8 +1,10 @@
-os: linux
+os: "linux"
 language: node_js
 node_js:
-  - "node",
+  - "node"
   - "4"
 install:
   - npm install
+  - npm test
+script:
   - npm test
