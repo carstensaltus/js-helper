@@ -6,7 +6,7 @@
     "removeComments": false,
     "noImplicitAny": false,
     "module": "commonjs",
-    "target": "es6",
+    "target": "es5",
     "outDir": "./dist"
   }
 }

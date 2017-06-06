@@ -1,26 +1,28 @@
 // TODO only load relevant lodash functions
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-const lodash_1 = require("lodash");
-class Helper {
+var lodash_1 = require("lodash");
+var Helper = (function () {
+    function Helper() {
+    }
     /**
      * Checks if a value is undefined.
      *
      * @param  {any} value
      * @return {boolean}
      */
-    isUndefined(value) {
+    Helper.prototype.isUndefined = function (value) {
         return typeof value === 'undefined';
-    }
+    };
     /**
      * Trims a string.
      *
      * @param  {string} value
      * @return {string}
      */
-    trim(value) {
+    Helper.prototype.trim = function (value) {
         return value.trim();
-    }
+    };
     /**
      * Uppercase a string.
      *
@@ -29,18 +31,18 @@ class Helper {
      * @param  {string} str
      * @return {string}
      */
-    upperCase(str) {
+    Helper.prototype.upperCase = function (str) {
         return str.toUpperCase();
-    }
+    };
     /**
      * lower case a string.
      *
      * @param  {string} str
      * @return {string}
      */
-    lowerCase(str) {
+    Helper.prototype.lowerCase = function (str) {
         return str.toLowerCase();
-    }
+    };
     /**
      * Turn a string into an array split by a character.
      *
@@ -48,9 +50,9 @@ class Helper {
      * @param  {string} character
      * @return {Array<string>}
      */
-    explode(str, character) {
+    Helper.prototype.explode = function (str, character) {
         return str.split(character);
-    }
+    };
     /**
      * Join an array into a string with a character.
      *
@@ -58,9 +60,9 @@ class Helper {
      * @param  {string} character
      * @return {string}
      */
-    implode(arr, character) {
+    Helper.prototype.implode = function (arr, character) {
         return arr.join(character);
-    }
+    };
     /**
      * Creates a duplicate-free version of an array, using SameValueZero for
      * equality comparisons, in which only the first occurrence of each element
@@ -70,9 +72,9 @@ class Helper {
      * @param  {Array<any>} value
      * @return {Array<any>}
      */
-    unique(value) {
+    Helper.prototype.unique = function (value) {
         return lodash_1.uniq(value);
-    }
+    };
     /**
      * This method is like _.assign except that it recursively merges own and
      * inherited enumerable string keyed properties of source objects into the
@@ -88,9 +90,9 @@ class Helper {
      * @param  {Object} objectB
      * @return {Object}
      */
-    merge(objectA, objectB) {
+    Helper.prototype.merge = function (objectA, objectB) {
         return lodash_1.merge(objectA, objectB);
-    }
+    };
     /**
      * Creates a shallow clone of value.
      *
@@ -99,9 +101,9 @@ class Helper {
      * @param  {any} value
      * @return {any}
      */
-    clone(value) {
+    Helper.prototype.clone = function (value) {
         return lodash_1.clone(value);
-    }
+    };
     /**
      * Returns a random string.
      *
@@ -109,9 +111,9 @@ class Helper {
      * @param {string} chars - The type of random strings, defaults to aA
      * @return {string}
      */
-    randomStr(length, chars) {
+    Helper.prototype.randomStr = function (length, chars) {
         chars = chars || 'aA';
-        let mask = '';
+        var mask = '';
         if (chars.indexOf('a') > -1) {
             mask += 'abcdefghijklmnopqrstuvwxyz';
         }
@@ -124,11 +126,12 @@ class Helper {
         if (chars.indexOf('!') > -1) {
             mask += '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
         }
-        let result = '';
+        var result = '';
         for (var i = (length || 5); i > 0; --i) {
             result += mask[Math.floor(Math.random() * mask.length)];
         }
         return result;
-    }
-}
+    };
+    return Helper;
+}());
 exports._ = new Helper();
