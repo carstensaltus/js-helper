@@ -1,4 +1,4 @@
-// TODO only load relevant lodash functions
+// TODO only load relevant lodash functions.
 'use strict';
 
 import {uniq, merge, clone} from 'lodash';
