@@ -1,8 +1,9 @@
 // TODO only load relevant lodash functions
+'use strict';
 
 import {uniq, merge, clone} from 'lodash';
 
-export class Helper implements IHelper {
+class Helper implements IHelper {
 
 	/**
 	 * Checks if a value is undefined.
@@ -116,15 +117,36 @@ export class Helper implements IHelper {
 	 * Returns a random string.
 	 *
 	 * @param  {number} length - Optional, defaults to 5
+	 * @param {string} chars - The type of random strings, defaults to aA
 	 * @return {string}
 	 */
-	public randomStr (length?: number): string {
-    let str: string = '';
-    let possible: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < (length || 5); i++) {
-      str += possible.charAt(Math.floor(Math.random() * possible.length));
+	public randomStr (length?: number, chars?: string): string {
+		chars = chars || 'aA';
+		let mask: string = '';
+
+    if (chars.indexOf('a') > -1) {
+			mask += 'abcdefghijklmnopqrstuvwxyz';
 		}
-    return str;
+
+    if (chars.indexOf('A') > -1) {
+			mask += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		}
+
+    if (chars.indexOf('#') > -1) {
+			mask += '0123456789';
+		}
+
+    if (chars.indexOf('!') > -1) {
+			mask += '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
+		}
+
+    let result: string = '';
+
+    for (var i = (length || 5); i > 0; --i) {
+			result += mask[Math.floor(Math.random() * mask.length)];
+		}
+
+    return result;
 	}
 
 }
@@ -139,7 +161,7 @@ export interface IHelper {
 	unique (value: Array<any>): Array<any>;
 	merge (objectA: any, objectB: any): any;
 	clone (value: any): any;
-	randomStr (length?: number): string;
+	randomStr (length?: number, chars?: string): string;
 }
 
-export const _: IHelper = new Helper();
+export const  _: IHelper = new Helper();

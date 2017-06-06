@@ -5,8 +5,8 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "typeRoots": ["node_modules/@types/"],
-    "target": "es5",
+    "module": "commonjs",
+    "target": "es6",
     "outDir": "./dist"
   }
 }

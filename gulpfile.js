@@ -20,7 +20,7 @@ gulp.task('watch', ['build'], () => {
 });
 
 gulp.task('build', () => {
-	runSequence('clean', 'tslint', 'compile', 'defintions', () => {
+	runSequence('clean', 'tslint', 'compile', 'definitions', () => {
 
 	});
 });
@@ -47,7 +47,7 @@ gulp.task('compile', () => {
 });
 
 // Compile Typescript to JavaScript
-gulp.task('defintions', () => {
+gulp.task('definitions', () => {
 	let tsProject = ts.createProject({
 		declaration: true
 	});

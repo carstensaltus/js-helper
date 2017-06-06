@@ -1,28 +1,26 @@
-"use strict";
 // TODO only load relevant lodash functions
+'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-var lodash_1 = require("lodash");
-var Helper = (function () {
-    function Helper() {
-    }
+const lodash_1 = require("lodash");
+class Helper {
     /**
      * Checks if a value is undefined.
      *
      * @param  {any} value
      * @return {boolean}
      */
-    Helper.prototype.isUndefined = function (value) {
+    isUndefined(value) {
         return typeof value === 'undefined';
-    };
+    }
     /**
      * Trims a string.
      *
      * @param  {string} value
      * @return {string}
      */
-    Helper.prototype.trim = function (value) {
+    trim(value) {
         return value.trim();
-    };
+    }
     /**
      * Uppercase a string.
      *
@@ -31,18 +29,18 @@ var Helper = (function () {
      * @param  {string} str
      * @return {string}
      */
-    Helper.prototype.upperCase = function (str) {
+    upperCase(str) {
         return str.toUpperCase();
-    };
+    }
     /**
      * lower case a string.
      *
      * @param  {string} str
      * @return {string}
      */
-    Helper.prototype.lowerCase = function (str) {
+    lowerCase(str) {
         return str.toLowerCase();
-    };
+    }
     /**
      * Turn a string into an array split by a character.
      *
@@ -50,9 +48,9 @@ var Helper = (function () {
      * @param  {string} character
      * @return {Array<string>}
      */
-    Helper.prototype.explode = function (str, character) {
+    explode(str, character) {
         return str.split(character);
-    };
+    }
     /**
      * Join an array into a string with a character.
      *
@@ -60,9 +58,9 @@ var Helper = (function () {
      * @param  {string} character
      * @return {string}
      */
-    Helper.prototype.implode = function (arr, character) {
+    implode(arr, character) {
         return arr.join(character);
-    };
+    }
     /**
      * Creates a duplicate-free version of an array, using SameValueZero for
      * equality comparisons, in which only the first occurrence of each element
@@ -72,9 +70,9 @@ var Helper = (function () {
      * @param  {Array<any>} value
      * @return {Array<any>}
      */
-    Helper.prototype.unique = function (value) {
+    unique(value) {
         return lodash_1.uniq(value);
-    };
+    }
     /**
      * This method is like _.assign except that it recursively merges own and
      * inherited enumerable string keyed properties of source objects into the
@@ -90,9 +88,9 @@ var Helper = (function () {
      * @param  {Object} objectB
      * @return {Object}
      */
-    Helper.prototype.merge = function (objectA, objectB) {
+    merge(objectA, objectB) {
         return lodash_1.merge(objectA, objectB);
-    };
+    }
     /**
      * Creates a shallow clone of value.
      *
@@ -101,24 +99,36 @@ var Helper = (function () {
      * @param  {any} value
      * @return {any}
      */
-    Helper.prototype.clone = function (value) {
+    clone(value) {
         return lodash_1.clone(value);
-    };
+    }
     /**
      * Returns a random string.
      *
      * @param  {number} length - Optional, defaults to 5
+     * @param {string} chars - The type of random strings
      * @return {string}
      */
-    Helper.prototype.randomStr = function (length) {
-        var str = '';
-        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for (var i = 0; i < (length || 5); i++) {
-            str += possible.charAt(Math.floor(Math.random() * possible.length));
+    randomStr(length, chars) {
+        chars = chars || 'aA';
+        let mask = '';
+        if (chars.indexOf('a') > -1) {
+            mask += 'abcdefghijklmnopqrstuvwxyz';
         }
-        return str;
-    };
-    return Helper;
-}());
-exports.Helper = Helper;
+        if (chars.indexOf('A') > -1) {
+            mask += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        }
+        if (chars.indexOf('#') > -1) {
+            mask += '0123456789';
+        }
+        if (chars.indexOf('!') > -1) {
+            mask += '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
+        }
+        let result = '';
+        for (var i = (length || 5); i > 0; --i) {
+            result += mask[Math.floor(Math.random() * mask.length)];
+        }
+        return result;
+    }
+}
 exports._ = new Helper();
